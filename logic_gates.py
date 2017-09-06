@@ -24,7 +24,8 @@ class XOR:
         self.y = y * 1  # magically converts boolean to integer
         # print("__call__ has been called")
         z = self.forward() == 1
-        return z
+        z = z[0]  # So that the output is a boolean and not a list containing a boolean
+        return z[0]
 
     def forward(self):
         return self.neuralnetwork.forward([[self.x], [self.y]])
@@ -44,6 +45,7 @@ class AND:
         self.x = x * 1  # magically converts boolean to integer
         self.y = y * 1  # magically converts boolean to integer
         # print("__call__ has been called")
+        z = self.forward() == 1
         z = z[0]  # So that the output is a boolean and not a list containing a boolean
         return z[0]
 
@@ -65,6 +67,7 @@ class OR:
         self.x = x * 1  # magically converts boolean to integer
         self.y = y * 1  # magically converts boolean to integer
         # print("__call__ has been called")
+        z = self.forward() == 1
         z = z[0]  # So that the output is a boolean and not a list containing a boolean
         return z[0]
 
